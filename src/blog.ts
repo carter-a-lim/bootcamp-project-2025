@@ -1,5 +1,6 @@
 const blogContainer = document.getElementById("page-title");
 
+// Define Blog type
 type Blog = {
   title: string;
   date: string;
@@ -9,6 +10,7 @@ type Blog = {
   slug: string;
 };
 
+// Create blog posts
 const blogPosts: Blog[] = [
   {
     title: "My favorite fruit",
@@ -29,8 +31,11 @@ const blogPosts: Blog[] = [
 ];
 
 blogPosts.forEach((blog) => {
+  // Create container for posts
   let containter = document.createElement("div");
   containter.className = "blog-container";
+
+  // Create anchor for href
   let posts = document.createElement("a");
   posts.className = "blog-post";
   posts.href = blog.slug;
@@ -39,6 +44,7 @@ blogPosts.forEach((blog) => {
   image.src = blog.image;
   image.alt = blog.imageAlt;
 
+  // Create container for text
   let postText = document.createElement("div");
 
   const title = document.createElement("h2");
@@ -50,6 +56,7 @@ blogPosts.forEach((blog) => {
   const description = document.createElement("p");
   description.innerText = blog.description;
 
+  // Append elements
   postText.append(title, date, description);
   posts.append(image, postText);
   containter.append(posts);
